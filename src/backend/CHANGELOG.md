@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.0](https://github.com/druwan/devops-study-app/compare/backend-v0.2.0...backend-v0.3.0) (2026-06-26)
+
+
+### Features
+
+* **backend:** trigger ci ([8b92a12](https://github.com/druwan/devops-study-app/commit/8b92a1214ffdd3d4ecfc4ef11eae021b008b133e))
+
 ## [0.2.0](https://github.com/druwan/devops-study-app/compare/backend-v0.1.0...backend-v0.2.0) (2026-06-26)
 
 
