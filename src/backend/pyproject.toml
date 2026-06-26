@@ -9,6 +9,7 @@ dependencies = [
     "fastapi[standard]>=0.138.0",
     "pytest>=9.1.1",
     "pytest-asyncio>=1.4.0",
+    "ruff>=0.15.20",
 ]
 
 [project.scripts]
