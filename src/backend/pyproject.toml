@@ -5,13 +5,7 @@ description = "Backend API for tracking study time for DevOps certifications"
 readme = "README.md"
 authors = [{ name = "Christopher Vestman", email = "chris@gmail.com" }]
 requires-python = ">=3.13"
-dependencies = [
-    "fastapi[standard]>=0.138.0",
-    "pytest>=9.1.1",
-    "pytest-asyncio>=1.4.0",
-    "pytest-cov>=7.1.0",
-    "ruff>=0.15.20",
-]
+dependencies = ["fastapi[standard]>=0.138.0"]
 
 [project.scripts]
 study-tracker-api = "backend.main:main"
@@ -22,3 +16,11 @@ build-backend = "uv_build"
 
 [tool.uv.build-backend]
 module-name = "backend"
+
+[dependency-groups]
+dev = [
+  "pytest>=9.1.1",
+  "pytest-asyncio>=1.4.0",
+  "pytest-cov>=7.1.0",
+  "ruff>=0.15.20",
+]
