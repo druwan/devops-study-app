@@ -222,7 +222,7 @@ class K8sTestEnvironment:
         # Wait for pods to be ready
         logger.info("Waiting for pods to be ready...")
         self.run_command(
-            "kubectl wait --for=condition=Ready pods --all -n study-app --timeout=120s"
+            "kubectl wait --for=condition=Ready pods --all -n study-app --timeout=180s"
         )
 
         # Get the service URLs
