@@ -211,6 +211,24 @@ class K8sTestEnvironment:
         logger.error("Failed to get service URLs after multiple retries")
         return False
 
+    def wait_for_pods_ready(
+        self, namespace="study-app", timeout=180, retries=3, delay=10
+    ):
+        """Wait for pods to be ready with retries"""
+        for attempt in range(retries):
+            result = self.run_command(
+                f"kubectl wait --for=condition=Ready pods --all -n {namespace} --timeout={timeout}s",
+                check=False,
+            )
+            if result.returncode == 0:
+                return True
+            logger.warning(
+                f"Pods not ready (attempt {attempt + 1}/{retries}), retrying in {delay}s..."
+            )
+            time.sleep(delay)
+        logger.error("Pods failed to become ready after all retries")
+        return False
+
     def deploy_application(self):
         """Deploy the application using kubectl and kustomize"""
         logger.info("Deploying application using kustomize")
@@ -219,11 +237,11 @@ class K8sTestEnvironment:
         # Apply using kubectl apply and kustomize
         self.run_command(f"kubectl apply -k {kustomize_path}")
 
+        time.sleep(5)  # give the scheduler a moment
         # Wait for pods to be ready
         logger.info("Waiting for pods to be ready...")
-        self.run_command(
-            "kubectl wait --for=condition=Ready pods --all -n study-app --timeout=180s"
-        )
+        if not self.wait_for_pods_ready():
+            return False
 
         # Get the service URLs
         if not self.get_service_urls():
