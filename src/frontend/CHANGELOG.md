@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.0](https://github.com/druwan/devops-study-app/compare/frontend-v0.2.0...frontend-v0.3.0) (2026-06-27)
+
+
+### Features
+
+* **frontend:** trigger ci ([b6c2dab](https://github.com/druwan/devops-study-app/commit/b6c2dab70d3c32fe2881a278444b3f30ed72293d))
+
 ## [0.2.0](https://github.com/druwan/devops-study-app/compare/frontend-v0.1.0...frontend-v0.2.0) (2026-06-26)
 
 
