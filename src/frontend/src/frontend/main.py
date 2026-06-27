@@ -105,6 +105,7 @@ def add_session():
 @app.route("/health")
 def health():
     """Health check endpoint for monitoring"""
+    # Comment to trigger CI flow
     try:
         # Attempt to connect to the API
         response = requests.get(
